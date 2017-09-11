@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery game</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row, text-center"><span id="user char"><h3>Select Your Character</h3></span></div>
+		<div class="row"><!--character select row1-->
+			<div class="col-md-1"><!--buffer to center--></div>
+			<div class="col-md-2">
+				<img class="img" id="her" src="assets/images/hg.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="ron" src="assets/images/rw.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="har" src="assets/images/hp.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="nev" src="assets/images/nl.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="ced" src="assets/images/cd.jpg">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row">
+				<div class="col-md-2"><!--buffer to center--></div>
+				<div class="col-md-2"><button type="button" id="attack" class="btn btn-danger">Attack</button></div>
+				<div class="col-md-2"><button type="button" id="guard" class="btn btn-primary">Guard</button></div>
+				<div class="col-md-2"><button type="button" id="heal" class="btn btn-success">Heal</button></div>
+				<div class="col-md-2"><button type="button" id="special" class="btn btn-warning">Special</button></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4"><!--User Stats-->
+				<div class="thumbnail">
+					<div class="caption">
+					<h3 class="text-center">Player Stats</h3>
+					</div>
+					<div id="userStats"><h4>asdf</h4></div>
+				</div>
+    		</div>
+    		<div class="col-md-4"><!--battle text-->
+				<div class="thumbnail">
+					<div id="battleText">
+					
+					<h3 class="text-center"><button type="button" id="start" class="btn btn-info">Start</button></h3>
+					<p></p>
+					
+					</div>
+				</div>
+    		</div>
+    		<div class="col-md-4"><!--Comp Stats-->
+				<div class="thumbnail">
+					<div class="caption">
+					<h3 class="text-center">Computer Stats</h3>
+					</div>
+					<div id="compStats"><h4>asdf</h4></div>
+				</div>
+    		</div>
+			
+		</div>
+
+		
+		<div class="row"><!--enemy select row-->
+			<div class="col-md-1"><!--buffer to center--></div>
+			<div class="col-md-2">
+				<img class="img" id="sev" src="assets/images/ss.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="del" src="assets/images/du.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="tom" src="assets/images/tr.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="bel" src="assets/images/bl.jpg">
+			</div>
+			<div class="col-md-2">
+				<img class="img" id="luc" src="assets/images/lm.jpg">
+			</div>
+		</div>
+		<div class="row, text-center"><span id="comp char"><h3>Select Your Opponent</h3></span></div>
+	</div>
+
+<script src="assets/javascript/game.js"></script>
+</body>
+</html>

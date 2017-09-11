@@ -1,0 +1,33 @@
+body {
+	background-image: url("../images/bg.jpg");
+	background-repeat: no-repeat;
+	background-color: gray;
+	color: silver;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+
+}
+
+button {
+	width: 150px;
+	color: silver;
+}
+
+.img {
+	height: 150px;
+	width: 150px;
+	border-style: solid;
+	border-width: 7px;
+	border-color: darkgray;
+}
+
+.thumbnail {
+	height: 350px;
+	margin-top: 85px;
+	margin-bottom: 75px;
+	color: silver;
+	padding: 25px;
+}
