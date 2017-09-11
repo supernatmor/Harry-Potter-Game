@@ -1,0 +1,22 @@
+***things to add***
+	player/comp image to battle blocks
+	battle text - clear start button once pressed
+	battle text - modify div text for combat
+	combat stats per character
+	combat functions
+		attack
+		heal
+		guard (dmg reduction)
+		special (???)
+	player stats - track round wins (5 max for game win)
+	reset function
+
+
+***things to modify***
+	select ANY hero
+		all blue, remaining gray after click
+	select ANY opponent
+		all orange, remaining gray after click
+	disable portrait clicks after champ select
+		(nested combat function?)
+	
