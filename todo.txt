@@ -1,5 +1,6 @@
 ***things to add***
 	player/comp image to battle blocks
+		remove from bar, add to block
 	battle text - clear start button once pressed
 	battle text - modify div text for combat
 	combat stats per character
