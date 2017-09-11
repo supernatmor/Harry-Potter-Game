@@ -25,9 +25,10 @@ button {
 }
 
 .thumbnail {
-	height: 350px;
-	margin-top: 85px;
-	margin-bottom: 75px;
+	height: 235px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 	color: silver;
 	padding: 25px;
+	background-color: white;
 }

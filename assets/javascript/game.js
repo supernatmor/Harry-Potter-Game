@@ -34,37 +34,34 @@ function setUserGray() {
 	document.getElementById("ced").style.borderColor = "darkgray";
 
 }
-
-
-
 function pickUser() {
 	setUserBlue();
 	$("#her").on("click", function() {
-		alert("you clicked Hermione");
+		//alert("you clicked Hermione");
 		setUserGray()
 		document.getElementById("her").style.borderColor = "green";
 	});
 
 	$("#ron").on("click", function() {
-		alert("you clicked Ron");
+		//alert("you clicked Ron");
 		setUserGray()
 		document.getElementById("ron").style.borderColor = "green";
 	});
 
 	$("#har").on("click", function() {
-		alert("you clicked Harry");
+		//alert("you clicked Harry");
 		setUserGray()
 		document.getElementById("har").style.borderColor = "green";
 	});
 
 	$("#nev").on("click", function() {
-		alert("you clicked Neville");
+		//alert("you clicked Neville");
 		setUserGray()
 		document.getElementById("nev").style.borderColor = "green";
 	});
 
 	$("#ced").on("click", function() {
-		alert("you clicked Cedrick");
+		//alert("you clicked Cedrick");
 		setUserGray()
 		document.getElementById("ced").style.borderColor = "green";
 	});
@@ -82,7 +79,6 @@ $("#compChamp").on("click", function(){
 	pickComp();
 	}
 )
-
 
 function setCompOrange() {
 	document.getElementById("sev").style.borderColor = "orange";
@@ -102,31 +98,31 @@ function setCompGray() {
 function pickComp(){
 	setCompOrange();
 	$("#sev").on("click", function() {
-		alert("you clicked Snape");
+		//alert("you clicked Snape");
 		setCompGray()
 		document.getElementById("sev").style.borderColor = "red";
 	});
 
 	$("#del").on("click", function() {
-		alert("you clicked Umbridge");
+		//alert("you clicked Umbridge");
 		setCompGray()
 		document.getElementById("del").style.borderColor = "red";
 	});
 
 	$("#tom").on("click", function() {
-		alert("you clicked Voldemort");
+		//alert("you clicked Voldemort");
 		setCompGray()
 		document.getElementById("tom").style.borderColor = "red";
 	});
 
 	$("#bel").on("click", function() {
-		alert("you clicked Bellatrix");
+		//alert("you clicked Bellatrix");
 		setCompGray()
 		document.getElementById("bel").style.borderColor = "red";
 	});
 
 	$("#luc").on("click", function() {
-		alert("you clicked Lucius");
+		//alert("you clicked Lucius");
 		setCompGray()
 		document.getElementById("luc").style.borderColor = "red";
 	});
