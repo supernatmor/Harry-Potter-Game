@@ -8,7 +8,7 @@ $("#start").on("click", function() {
 	pickUser();
 	alert("Choose Your Opponent");
 	pickComp();
-	$("#battleText").html("Start!!");//eliminates start button after clicking, text will update throughout duel
+	//$("#battleText").html("Start!!");//eliminates start button after clicking, text will update throughout duel
 	}
 
 );
@@ -24,10 +24,15 @@ function setUserBlue(){
 }
 function setUserGray() {
 	document.getElementById("her").style.borderColor = "darkgray";
+	$('#her').off("click");
 	document.getElementById("ron").style.borderColor = "darkgray";
+	$('#ron').off("click");
 	document.getElementById("har").style.borderColor = "darkgray";
+	$('#har').off("click");
 	document.getElementById("nev").style.borderColor = "darkgray";
+	$('#nev').off("click");
 	document.getElementById("ced").style.borderColor = "darkgray";
+	$('#ced').off("click");
 
 }
 function pickUser() {
@@ -35,35 +40,35 @@ function pickUser() {
 	$("#her").on("click", function() {
 		//alert("you clicked Hermione");
 		setUserGray()
-		document.getElementById("her").style.borderColor = "green";
+		$("#her").fadeTo(0,0);
 		$("#userImg").attr('src', 'assets/images/hg.jpg');
 	});
 
 	$("#ron").on("click", function() {
 		//alert("you clicked Ron");
 		setUserGray()
-		document.getElementById("ron").style.borderColor = "green";
+		$("#ron").fadeTo(0,0);
 		$("#userImg").attr('src', 'assets/images/rw.jpg');
 	});
 
 	$("#har").on("click", function() {
 		//alert("you clicked Harry");
 		setUserGray()
-		document.getElementById("har").style.borderColor = "green";
+		$("#har").fadeTo(0,0);
 		$("#userImg").attr('src', 'assets/images/hp.jpg');
 	});
 
 	$("#nev").on("click", function() {
 		//alert("you clicked Neville");
 		setUserGray()
-		document.getElementById("nev").style.borderColor = "green";
+		$("#nev").fadeTo(0,0);
 		$("#userImg").attr('src', 'assets/images/nl.jpg');
 	});
 
 	$("#ced").on("click", function() {
 		//alert("you clicked Cedrick");
 		setUserGray()
-		document.getElementById("ced").style.borderColor = "green";
+		$("#ced").fadeTo(0,0);
 		$("#userImg").attr('src', 'assets/images/cd.jpg');
 	});
 }
@@ -84,10 +89,15 @@ function setCompOrange() {
 }
 function setCompGray() {
 	document.getElementById("sev").style.borderColor = "darkgray";
+	$('#sev').off("click");
 	document.getElementById("del").style.borderColor = "darkgray";
+	$('#del').off("click");
 	document.getElementById("tom").style.borderColor = "darkgray";
+	$('#tom').off("click");
 	document.getElementById("bel").style.borderColor = "darkgray";
+	$('#bel').off("click");
 	document.getElementById("luc").style.borderColor = "darkgray";
+	$('#luc').off("click");
 
 }
 function pickComp(){
@@ -95,35 +105,35 @@ function pickComp(){
 	$("#sev").on("click", function() {
 		//alert("you clicked Snape");
 		setCompGray()
-		document.getElementById("sev").style.borderColor = "red";
+		$("#sev").fadeTo(0,0);
 		$("#compImg").attr('src', 'assets/images/ss.jpg');
 	});
 
 	$("#del").on("click", function() {
 		//alert("you clicked Umbridge");
 		setCompGray()
-		document.getElementById("del").style.borderColor = "red";
+		$("#del").fadeTo(0,0);
 		$("#compImg").attr('src', 'assets/images/du.jpg');
 	});
 
 	$("#tom").on("click", function() {
 		//alert("you clicked Voldemort");
 		setCompGray()
-		document.getElementById("tom").style.borderColor = "red";
+		$("#tom").fadeTo(0,0);
 		$("#compImg").attr('src', 'assets/images/tr.jpg');
 	});
 
 	$("#bel").on("click", function() {
 		//alert("you clicked Bellatrix");
 		setCompGray()
-		document.getElementById("bel").style.borderColor = "red";
+		$("#bel").fadeTo(0,0);
 		$("#compImg").attr('src', 'assets/images/bl.jpg');
 	});
 
 	$("#luc").on("click", function() {
 		//alert("you clicked Lucius");
 		setCompGray()
-		document.getElementById("luc").style.borderColor = "red";
+		$("#luc").fadeTo(0,0);
 		$("#compImg").attr('src', 'assets/images/lm.jpg');
 	});
 } 
@@ -150,3 +160,11 @@ $("#heal").on("click", function() {
 $("#special").on("click", function() {
 	alert("you clicked special");
 })
+
+//round win
+$("#newOpp").on("click", function () {
+	alert("Pick another Opponent");
+	pickComp();
+});
+
+
