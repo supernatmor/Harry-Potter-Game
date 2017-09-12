@@ -1,14 +1,47 @@
 //code for when doc ready, need start button in battle text
 
-//....
+//characters and properties
+var herm = {
+	hp: 100, attack: 20, guard: 10, heal: 15
+};
+var ronald = {
+	hp: 100, attack: 20, guard: 10, heal: 15
+};
+var potter = {
+	hp: 100, attack: 20, guard: 10, heal: 15
+};
+var neville  = {
+	hp: 100, attack: 20, guard: 10, heal: 15
+};
+var cedric = {
+	hp: 100, attack: 20, guard: 10, heal: 15
+};
+
+var snape = {
+	live: true, hp: 150, attack: 20
+};
+
+var dolores = {
+	live: true, hp: 85, attack: 20
+};
+
+var voldy = {
+	live: true, hp: 200, attack: 20
+};
+
+var bella = {
+	live: true, hp: 120, attack: 20
+};
+
+var malfoy = {
+	live: true, hp: 100, attack: 20
+};
 
 //start function
 $("#start").on("click", function() {
-	alert("Choose Your Champion");
+	$("#battleText").html("Choose your player and your Opponent");//eliminates start button after clicking, text will update throughout duel
 	pickUser();
-	alert("Choose Your Opponent");
 	pickComp();
-	//$("#battleText").html("Start!!");//eliminates start button after clicking, text will update throughout duel
 	}
 
 );
@@ -22,53 +55,38 @@ function setUserBlue(){
 	document.getElementById("nev").style.borderColor = "blue";
 	document.getElementById("ced").style.borderColor = "blue";
 }
-function setUserGray() {
-	document.getElementById("her").style.borderColor = "darkgray";
-	$('#her').off("click");
-	document.getElementById("ron").style.borderColor = "darkgray";
-	$('#ron').off("click");
-	document.getElementById("har").style.borderColor = "darkgray";
-	$('#har').off("click");
-	document.getElementById("nev").style.borderColor = "darkgray";
-	$('#nev').off("click");
-	document.getElementById("ced").style.borderColor = "darkgray";
-	$('#ced').off("click");
-
+function clearHeroes() {
+	$("#her").fadeTo(0,0);
+	$("#ron").fadeTo(0,0);
+	$("#har").fadeTo(0,0);
+	$("#nev").fadeTo(0,0);
+	$("#ced").fadeTo(0,0);
+	$("#heroes").html("<h3>&nbsp</h3>");
 }
 function pickUser() {
 	setUserBlue();
 	$("#her").on("click", function() {
-		//alert("you clicked Hermione");
-		setUserGray()
-		$("#her").fadeTo(0,0);
+		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/hg.jpg');
 	});
 
 	$("#ron").on("click", function() {
-		//alert("you clicked Ron");
-		setUserGray()
-		$("#ron").fadeTo(0,0);
+		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/rw.jpg');
 	});
 
 	$("#har").on("click", function() {
-		//alert("you clicked Harry");
-		setUserGray()
-		$("#har").fadeTo(0,0);
+		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/hp.jpg');
 	});
 
 	$("#nev").on("click", function() {
-		//alert("you clicked Neville");
-		setUserGray()
-		$("#nev").fadeTo(0,0);
+		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/nl.jpg');
 	});
 
 	$("#ced").on("click", function() {
-		//alert("you clicked Cedrick");
-		setUserGray()
-		$("#ced").fadeTo(0,0);
+		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/cd.jpg');
 	});
 }
@@ -89,52 +107,62 @@ function setCompOrange() {
 }
 function setCompGray() {
 	document.getElementById("sev").style.borderColor = "darkgray";
-	$('#sev').off("click");
 	document.getElementById("del").style.borderColor = "darkgray";
-	$('#del').off("click");
 	document.getElementById("tom").style.borderColor = "darkgray";
-	$('#tom').off("click");
 	document.getElementById("bel").style.borderColor = "darkgray";
-	$('#bel').off("click");
 	document.getElementById("luc").style.borderColor = "darkgray";
-	$('#luc').off("click");
 
 }
 function pickComp(){
 	setCompOrange();
 	$("#sev").on("click", function() {
 		//alert("you clicked Snape");
-		setCompGray()
-		$("#sev").fadeTo(0,0);
-		$("#compImg").attr('src', 'assets/images/ss.jpg');
+		if (snape.live == true){
+			$("#compImg").attr('src', 'assets/images/ss.jpg');
+			setCompGray()
+			$("#sev").fadeTo(0,0);
+		}
+		snape.live = false;
 	});
 
 	$("#del").on("click", function() {
 		//alert("you clicked Umbridge");
-		setCompGray()
-		$("#del").fadeTo(0,0);
-		$("#compImg").attr('src', 'assets/images/du.jpg');
+		if (dolores.live == true){
+			$("#compImg").attr('src', 'assets/images/du.jpg');
+			setCompGray()
+			$("#del").fadeTo(0,0);
+		}
+		dolores.live = false;
 	});
 
 	$("#tom").on("click", function() {
 		//alert("you clicked Voldemort");
-		setCompGray()
-		$("#tom").fadeTo(0,0);
-		$("#compImg").attr('src', 'assets/images/tr.jpg');
+		if (voldy.live == true){
+			$("#compImg").attr('src', 'assets/images/tr.jpg');
+			setCompGray()
+			$("#tom").fadeTo(0,0);
+		}
+		voldy.live = false;
 	});
 
 	$("#bel").on("click", function() {
 		//alert("you clicked Bellatrix");
-		setCompGray()
-		$("#bel").fadeTo(0,0);
-		$("#compImg").attr('src', 'assets/images/bl.jpg');
+		if (bella.live == true){
+			$("#compImg").attr('src', 'assets/images/bl.jpg');
+			setCompGray()
+			$("#bel").fadeTo(0,0);
+		}
+		bella.live = false;
 	});
 
 	$("#luc").on("click", function() {
 		//alert("you clicked Lucius");
-		setCompGray()
-		$("#luc").fadeTo(0,0);
-		$("#compImg").attr('src', 'assets/images/lm.jpg');
+		if (malfoy.live == true){
+			$("#compImg").attr('src', 'assets/images/lm.jpg');
+			setCompGray()
+			$("#luc").fadeTo(0,0);
+		}
+		malfoy.live = false;
 	});
 } 
 
@@ -164,6 +192,7 @@ $("#special").on("click", function() {
 //round win
 $("#newOpp").on("click", function () {
 	alert("Pick another Opponent");
+
 	pickComp();
 });
 
