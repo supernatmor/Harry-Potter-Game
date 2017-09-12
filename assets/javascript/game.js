@@ -2,19 +2,19 @@
 
 //characters and properties
 var herm = {
-	hp: 100, attack: 20, guard: 10, heal: 15
+	hp: 100, attack: 20, guard: 10, heal: 15, sp: "Obliviate"
 };
 var ronald = {
-	hp: 100, attack: 20, guard: 10, heal: 15
+	hp: 100, attack: 20, guard: 10, heal: 15, sp: "Stupefy"
 };
 var potter = {
-	hp: 100, attack: 20, guard: 10, heal: 15
+	hp: 100, attack: 20, guard: 10, heal: 15, sp: "Expelliarmus"
 };
 var neville  = {
-	hp: 100, attack: 20, guard: 10, heal: 15
+	hp: 100, attack: 20, guard: 10, heal: 15, sp: "Petrificus Totalus"
 };
 var cedric = {
-	hp: 100, attack: 20, guard: 10, heal: 15
+	hp: 100, attack: 20, guard: 10, heal: 15, sp: "Transfigure"
 };
 
 var snape = {
@@ -34,7 +34,7 @@ var bella = {
 };
 
 var malfoy = {
-	live: true, hp: 100, attack: 20
+	live: true, hp: 100,  attack: 20
 };
 
 //start function
@@ -68,26 +68,37 @@ function pickUser() {
 	$("#her").on("click", function() {
 		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/hg.jpg');
+		$("#userHP").html("HP -  " + herm.hp);
+		$("#userSP").html("Special - " + herm.sp);
+
 	});
 
 	$("#ron").on("click", function() {
 		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/rw.jpg');
+		$("#userHP").html("HP -  " + ronald.hp);
+		$("#userSP").html("Special - " + ronald.sp);
 	});
 
 	$("#har").on("click", function() {
 		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/hp.jpg');
+		$("#userHP").html("HP -  " + potter.hp);
+		$("#userSP").html("Special - " + potter.sp);
 	});
 
 	$("#nev").on("click", function() {
 		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/nl.jpg');
+		$("#userHP").html("HP -  " + neville.hp);
+		$("#userSP").html("Special - " + neville.sp);
 	});
 
 	$("#ced").on("click", function() {
 		clearHeroes()
 		$("#userImg").attr('src', 'assets/images/cd.jpg');
+		$("#userHP").html("HP -  " + cedric.hp);
+		$("#userSP").html("Special - " + cedric.sp);
 	});
 }
 
@@ -107,10 +118,15 @@ function setCompOrange() {
 }
 function setCompGray() {
 	document.getElementById("sev").style.borderColor = "darkgray";
+	$("#sev").off("click");
 	document.getElementById("del").style.borderColor = "darkgray";
+	$('#del').off("click");
 	document.getElementById("tom").style.borderColor = "darkgray";
+	$('#tom').off("click");
 	document.getElementById("bel").style.borderColor = "darkgray";
+	$('#bel').off("click");
 	document.getElementById("luc").style.borderColor = "darkgray";
+	$('#luc').off("click");
 
 }
 function pickComp(){
@@ -121,6 +137,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/ss.jpg');
 			setCompGray()
 			$("#sev").fadeTo(0,0);
+			$("#compHP").html("HP -  " + snape.hp);
 		}
 		snape.live = false;
 	});
@@ -131,6 +148,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/du.jpg');
 			setCompGray()
 			$("#del").fadeTo(0,0);
+			$("#compHP").html("HP -  " + dolores.hp);
 		}
 		dolores.live = false;
 	});
@@ -141,6 +159,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/tr.jpg');
 			setCompGray()
 			$("#tom").fadeTo(0,0);
+			$("#compHP").html("HP -  " + voldy.hp);
 		}
 		voldy.live = false;
 	});
@@ -151,6 +170,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/bl.jpg');
 			setCompGray()
 			$("#bel").fadeTo(0,0);
+			$("#compHP").html("HP -  " + bella.hp);
 		}
 		bella.live = false;
 	});
@@ -161,6 +181,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/lm.jpg');
 			setCompGray()
 			$("#luc").fadeTo(0,0);
+			$("#compHP").html("HP -  " + malfoy.hp);
 		}
 		malfoy.live = false;
 	});
