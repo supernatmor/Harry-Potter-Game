@@ -148,6 +148,7 @@ function pickComp(){
 			currentCompHP = comp.maxHP;
 			battle = true;
 			$("#battleText1").html("Begin!!");
+			$("#battleText2").html("");
 		}
 		snape.live = false;
 	});
@@ -163,6 +164,7 @@ function pickComp(){
 			currentCompHP = comp.maxHP;
 			battle = true;
 			$("#battleText1").html("Begin!!");
+			$("#battleText2").html("");
 		}
 		dolores.live = false;
 	});
@@ -178,6 +180,7 @@ function pickComp(){
 			currentCompHP = comp.maxHP;
 			battle = true;
 			$("#battleText1").html("Begin!!");
+			$("#battleText2").html("");
 		}
 		voldy.live = false;
 	});
@@ -193,6 +196,7 @@ function pickComp(){
 			currentCompHP = comp.maxHP;
 			battle = true;
 			$("#battleText1").html("Begin!!");
+			$("#battleText2").html("");
 		}
 		bella.live = false;
 	});
@@ -208,6 +212,7 @@ function pickComp(){
 			currentCompHP = comp.maxHP;
 			battle = true;
 			$("#battleText1").html("Begin!!");
+			$("#battleText2").html("");
 		}
 		malfoy.live = false;
 	});
@@ -233,6 +238,7 @@ $("#attack").on("click", function() {
 
 		if (currentCompHP <=0) {
 			roundWin++;
+			battle = false;
 			if (roundWin<5){
 				$("#compHP").html("HP - 0");
 				$("#battleText1").html("You've won this duel!!")
@@ -306,7 +312,7 @@ $("#start").on("click", function() {
 
 );
 
-
+//text if user loses
 function loseText () {
 	$("#userHP").html("");
 	$("#battleText1").html("You lose");
@@ -314,6 +320,7 @@ function loseText () {
 	reset()
 }
 
+//resets board for win or lose scenario
 function reset () {
 	$(".hPic").css({"border-color" : "darkgray"});
 	$(".hPic").fadeTo(1,1);
@@ -329,6 +336,8 @@ function reset () {
 	
 }
 
+
+//if user beats all comp chars
 function gg() {
 	$("#battleText1").html("<h1>Congratulations!!! You've Saved the Wizarding World!!!</h1>");
 	$("#battleText2").html("<h2>Play again</h2>");

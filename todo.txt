@@ -1,12 +1,6 @@
-***things to add***
-	track round wins (5 max for game win)
+try to reduce lines of code
+	**more functions?**
 
-	******reset function******
+vary enemy attack stats
 
-
-***things to modify***
-	select ANY hero
-		all blue, remaining gray after click
-	select ANY opponent
-		all orange, remaining gray after click
-	
+add mechanics for user attack and heal
