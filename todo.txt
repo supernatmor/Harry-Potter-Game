@@ -1,14 +1,4 @@
 ***things to add***
-	battle text - modify div text for combat
-	--combat functions--
-		attack
-		heal
-		guard (dmg reduction)
-		--special (???)
-			implement effects
-	char stats
-		vary hero stats
-		add villain a&k, guard, heal, sp
 	track round wins (5 max for game win)
 
 	******reset function******

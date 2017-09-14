@@ -6,7 +6,8 @@ var herm, ronald, potter, neville, cedric, snape, dolores, voldy, bella, malfoy;
 var user = {maxHP : 0, attack : 0, guard : 0};
 var comp = {maxHP : 0, attack : 0, name : ""};
 var currentUserHP, currentCompHP;
-var battle = false;
+var battle;
+var roundWin;
 
 function setUser (x, y, z) {
 	user.maxHP = x;
@@ -23,6 +24,8 @@ function setComp(x,y, z) {
 
 //sets char stats
 function setStats() {
+	battle = false;
+	roundWin = 0;
 	herm = {
 		maxHP: 85, attack: 30, guard: 10
 	};
@@ -68,6 +71,8 @@ function clearHeroes() {
 }
 
 function pickUser() {
+	$("#battleText1").html("<h1>Choose Your Hero Then Choose Your Opponent</h1>");//eliminates start button after clicking, text will update throughout duel
+	$("#battleText2").html("");
 	setUserBlue();
 	$("#her").on("click", function() {
 		clearHeroes()
@@ -141,6 +146,8 @@ function pickComp(){
 			$("#sev").fadeTo(0,0);
 			$("#compHP").html("HP -  " + snape.maxHP);
 			currentCompHP = comp.maxHP;
+			battle = true;
+			$("#battleText1").html("Begin!!");
 		}
 		snape.live = false;
 	});
@@ -154,6 +161,8 @@ function pickComp(){
 			$("#del").fadeTo(0,0);
 			$("#compHP").html("HP -  " + dolores.maxHP);
 			currentCompHP = comp.maxHP;
+			battle = true;
+			$("#battleText1").html("Begin!!");
 		}
 		dolores.live = false;
 	});
@@ -167,6 +176,8 @@ function pickComp(){
 			$("#tom").fadeTo(0,0);
 			$("#compHP").html("HP -  " + voldy.maxHP);
 			currentCompHP = comp.maxHP;
+			battle = true;
+			$("#battleText1").html("Begin!!");
 		}
 		voldy.live = false;
 	});
@@ -180,6 +191,8 @@ function pickComp(){
 			$("#bel").fadeTo(0,0);
 			$("#compHP").html("HP -  " + bella.maxHP);
 			currentCompHP = comp.maxHP;
+			battle = true;
+			$("#battleText1").html("Begin!!");
 		}
 		bella.live = false;
 	});
@@ -193,14 +206,13 @@ function pickComp(){
 			$("#luc").fadeTo(0,0);
 			$("#compHP").html("HP -  " + malfoy.maxHP);
 			currentCompHP = comp.maxHP;
+			battle = true;
+			$("#battleText1").html("Begin!!");
 		}
 		malfoy.live = false;
 	});
 } 
 
-
-
-////////////In game code///////////////
 
 //combat functions
 function counterAttack() {
@@ -220,10 +232,16 @@ $("#attack").on("click", function() {
 		}
 
 		if (currentCompHP <=0) {
-			$("#compHP").html("HP - 0");
-			$("#battleText1").html("You've won this duel!!")
-			$("#battleText2").html("Pick another opponent.");
+			roundWin++;
+			if (roundWin<5){
+				$("#compHP").html("HP - 0");
+				$("#battleText1").html("You've won this duel!!")
+				$("#battleText2").html("Pick another opponent.");
 			pickComp()
+			}
+			else{
+				gg()
+			}
 		}
 
 		if (currentUserHP > 0 ) {
@@ -233,9 +251,7 @@ $("#attack").on("click", function() {
 			//checks loss condition
 		else if (currentUserHP <=0) {
 			battle = false;
-			$("#userHP").html("");
-			$("#battleText1").html("You lose");
-			$("#battleText2").html("Try Again");
+			loseText()
 
 		}
 	}	
@@ -255,9 +271,7 @@ $("#guard").on("click", function() {
 		}
 		else if (currentUserHP <=0) {
 			battle = false;
-			$("#userHP").html("");
-			$("#battleText1").html("You lose");
-			$("#battleText2").html("Try Again");
+			loseText()
 
 		}
 	}	
@@ -276,9 +290,7 @@ $("#heal").on("click", function() {
 		}
 		else if (currentUserHP <=0) {
 			battle = false;
-			$("#userHP").html("");
-			$("#battleText1").html("You lose");
-			$("#battleText2").html("Try Again");
+			loseText()
 		}
 
 	}
@@ -287,20 +299,38 @@ $("#heal").on("click", function() {
 
 //start function
 $("#start").on("click", function() {
-	$("#battleText").html("Choose your player and your Opponent");//eliminates start button after clicking, text will update throughout duel
 	setStats();
 	pickUser();
-	battle = true;
-	
 	}
 
 
 );
 
 
-//round win
-$("#newOpp").on("click", function () {
-	alert("Pick another Opponent");
+function loseText () {
+	$("#userHP").html("");
+	$("#battleText1").html("You lose");
+	$("#battleText2").html("Try Again");
+	reset()
+}
 
-	pickComp();
-});
+function reset () {
+	$(".hPic").css({"border-color" : "darkgray"});
+	$(".hPic").fadeTo(1,1);
+	$(".ePic").fadeTo(1,1);
+	$("#userImg").attr('src', 'assets/images/php.png');
+	$("#compImg").attr('src', 'assets/images/php.png');
+	$("#heroes").html("<h3>Heroes</h3>");
+	$("#compHP").html("");
+	$("#battleText2").on("click", function() {
+		setStats();
+		pickUser();
+	})
+	
+}
+
+function gg() {
+	$("#battleText1").html("<h1>Congratulations!!! You've Saved the Wizarding World!!!</h1>");
+	$("#battleText2").html("<h2>Play again</h2>");
+	reset()
+}
