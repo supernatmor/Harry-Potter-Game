@@ -3,4 +3,10 @@ try to reduce lines of code
 
 vary enemy attack stats
 
-add mechanics for user attack and heal
+remove heal and guard
+
+user.attack += user.attack
+
+remove fadeTo()
+	change to remove()
+
