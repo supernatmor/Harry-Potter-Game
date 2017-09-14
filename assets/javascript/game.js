@@ -3,19 +3,18 @@
 
 //characters
 var herm, ronald, potter, neville, cedric, snape, dolores, voldy, bella, malfoy;
-var user = {maxHP : 0, attack : 0, guard : 0};
-var comp = {maxHP : 0, attack : 0, name : ""};
+var user = {maxHP : 0, attack : 0};//empty var to pass info when selecting hero
+var comp = {maxHP : 0, attack : 0, name : ""};//empty var to pass infor when selecting opponent
 var currentUserHP, currentCompHP;
-var battle;
-var roundWin;
+var battle; //boolean check to disable attack button
+var roundWin, grind; //counters for combat
 
-function setUser (x, y, z) {
+function setUser (x, y) {//passes char info to user when selected
 	user.maxHP = x;
 	user.attack = y;
-	user.guard = z;
 }
 
-function setComp(x,y, z) {
+function setComp(x,y, z) {//passes villain info to comp when selected
 	comp.maxHP = x;
 	comp.attack = y;
 	comp.name = z;
@@ -26,35 +25,36 @@ function setComp(x,y, z) {
 function setStats() {
 	battle = false;
 	roundWin = 0;
+	grind = 0;
 	herm = {
-		maxHP: 85, attack: 30, guard: 10
+		maxHP: 90, attack: 18
 	};
 	ronald = {
-		maxHP: 90, attack: 20, guard: 15
+		maxHP: 115, attack: 16
 	};
 	potter = {
-		maxHP: 100, attack: 25, guard: 20
+		maxHP: 130, attack: 14
 	};
 	neville  = {
-		maxHP: 120, attack: 15, guard: 10
+		maxHP: 150, attack: 10
 	};
 	cedric = {
-		maxHP: 1, attack: 0, guard: 0
+		maxHP: 1, attack: 0	
 	};
 	snape = {
-		live: true, maxHP: 150, attack: 20, name : "Snape"
+		live: true, maxHP: 125, attack: 20, name : "Snape"
 	};
 	dolores = {
 		live: true, maxHP: 85, attack: 20, name : "Umbridge"
 	};
 	voldy = {
-		live: true, maxHP: 200, attack: 20, name : "Voldemort"
+		live: true, maxHP: 150, attack: 20, name : "Voldemort"
 	};
 	bella = {
-		live: true, maxHP: 120, attack: 20, name : "Bellatrix"
+		live: true, maxHP: 115, attack: 20, name : "Bellatrix"
 	};
 	malfoy = {
-		live: true, maxHP: 100,  attack: 20, name : "Malfoy"
+		live: true, maxHP: 95,  attack: 20, name : "Malfoy"
 	};
 }
 
@@ -66,7 +66,7 @@ function setUserBlue(){
 }
 		//clears photos after user chooses hero
 function clearHeroes() {
-	$(".hPic").fadeTo(0,0).off("click");
+	$(".hPic").fadeTo(0,0);
 	$("#heroes").html("<h3>&nbsp</h3>");
 }
 
@@ -131,7 +131,6 @@ function setCompOrange() {
 		//gray borders after choosing a villain
 function setCompGray() {
 	$(".ePic").css({"border-color" : "darkgray"});
-	$("#sev, #del, #tom, #bel, #luc").off("click");
 }
 
 
@@ -147,7 +146,7 @@ function pickComp(){
 			$("#compHP").html("HP -  " + snape.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
-			$("#battleText1").html("Begin!!");
+			$("#battleText1").html("<h1>Begin!! &nbsp &nbsp</h1>");
 			$("#battleText2").html("");
 		}
 		snape.live = false;
@@ -163,7 +162,7 @@ function pickComp(){
 			$("#compHP").html("HP -  " + dolores.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
-			$("#battleText1").html("Begin!!");
+			$("#battleText1").html("<h1>Begin!! &nbsp &nbsp</h1>");
 			$("#battleText2").html("");
 		}
 		dolores.live = false;
@@ -179,7 +178,7 @@ function pickComp(){
 			$("#compHP").html("HP -  " + voldy.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
-			$("#battleText1").html("Begin!!");
+			$("#battleText1").html("<h1>Begin!! &nbsp &nbsp</h1>");
 			$("#battleText2").html("");
 		}
 		voldy.live = false;
@@ -195,7 +194,7 @@ function pickComp(){
 			$("#compHP").html("HP -  " + bella.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
-			$("#battleText1").html("Begin!!");
+			$("#battleText1").html("<h1>Begin!! &nbsp &nbsp</h1>");
 			$("#battleText2").html("");
 		}
 		bella.live = false;
@@ -211,7 +210,7 @@ function pickComp(){
 			$("#compHP").html("HP -  " + malfoy.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
-			$("#battleText1").html("Begin!!");
+			$("#battleText1").html("<h1>Begin!! &nbsp &nbsp</h1>");
 			$("#battleText2").html("");
 		}
 		malfoy.live = false;
@@ -228,8 +227,9 @@ function counterAttack() {
 
 $("#attack").on("click", function() {
 	if (battle === true){
-		$("#battleText1").html("You attack for " + user.attack);
-		currentCompHP -= user.attack;
+		grind++;
+		$("#battleText1").html("You attack for " + (user.attack * grind) );
+		currentCompHP -= ( user.attack * grind) ;
 		if (currentCompHP> 0) {//checks if comp still alive
 			counterAttack();
 			$("#compHP").html("HP - " + currentCompHP);
@@ -241,8 +241,8 @@ $("#attack").on("click", function() {
 			battle = false;
 			if (roundWin<5){
 				$("#compHP").html("HP - 0");
-				$("#battleText1").html("You've won this duel!!")
-				$("#battleText2").html("Pick another opponent.");
+				$("#battleText1").html("You attack for " + (user.attack * grind) )
+				$("#battleText2").html("You've won this duel!!<br>Pick another opponent.");
 			pickComp()
 			}
 			else{
@@ -264,43 +264,7 @@ $("#attack").on("click", function() {
 	
 })
 
-$("#guard").on("click", function() {
-	if (battle === true) {
-		var gHeal = Math.floor(user.maxHP * .15);
-		$("#battleText1").html("Health up by " + gHeal + ". Incoming attack reduced by " + (user.guard));
-		counterAttack();
-		currentUserHP += user.guard + gHeal;
-		$("#compHP").html("HP - " + currentCompHP);
-		//checks loss condition
-		if (currentUserHP > 0) {
-			$("#userHP").html("HP - " + currentUserHP);
-		}
-		else if (currentUserHP <=0) {
-			battle = false;
-			loseText()
 
-		}
-	}	
-})
-
-$("#heal").on("click", function() {
-	if (battle === true){
-		var heal = Math.floor(user.maxHP * .3);
-		$("#battleText1").html("You heal for " + heal);
-		currentUserHP += heal;
-		counterAttack();
-		$("#compHP").html("HP - " + currentCompHP);
-		//checks loss condition
-		if (currentUserHP > 0) {
-			$("#userHP").html("HP - " + currentUserHP);
-		}
-		else if (currentUserHP <=0) {
-			battle = false;
-			loseText()
-		}
-
-	}
-})
 
 
 //start function
@@ -315,8 +279,8 @@ $("#start").on("click", function() {
 //text if user loses
 function loseText () {
 	$("#userHP").html("");
-	$("#battleText1").html("You lose");
-	$("#battleText2").html("Try Again");
+	$("#battleText1").html("You lose &nbsp &nbsp");
+	$("#battleText2").html("Try Again &nbsp &nbsp");
 	reset()
 }
 
@@ -339,6 +303,7 @@ function reset () {
 
 //if user beats all comp chars
 function gg() {
+	$("#userHP").html("");
 	$("#battleText1").html("<h1>Congratulations!!! You've Saved the Wizarding World!!!</h1>");
 	$("#battleText2").html("<h2>Play again</h2>");
 	reset()
