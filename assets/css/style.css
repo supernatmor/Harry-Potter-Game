@@ -57,7 +57,11 @@ button {
 	padding: 25px;
 }
 
-#battleText {
+#battleText1 {
+	font-size: 26px;
+	text-align: center;
+}
+#battleText2 {
 	font-size: 26px;
 	text-align: center;
 }

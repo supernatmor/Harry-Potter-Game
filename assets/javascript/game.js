@@ -6,6 +6,7 @@ var herm, ronald, potter, neville, cedric, snape, dolores, voldy, bella, malfoy;
 var user = {maxHP : 0, attack : 0, guard : 0};
 var comp = {maxHP : 0, attack : 0, name : ""};
 var currentUserHP, currentCompHP;
+var battle = false;
 
 function setUser (x, y, z) {
 	user.maxHP = x;
@@ -203,61 +204,85 @@ function pickComp(){
 
 //combat functions
 function counterAttack() {
-	alert(comp.name + " attacked for " + comp.attack);
+	$("#battleText2").html(comp.name + " attacked for " + comp.attack);
 	currentUserHP = currentUserHP - comp.attack; 
 }
 
 
-		$("#attack").on("click", function() {
-			alert("You attack for " + user.attack);
-			currentCompHP = currentCompHP - user.attack;
-			if (currentCompHP> 0) {
-				counterAttack();
-				}
-			$("#compHP").html("HP - " + currentCompHP);
-			//checks loss condition
-			if (currentUserHP > 0) {
-				$("#userHP").html("HP - " + currentUserHP);
-			}
-			else{
-				battle = false;
-				alert("you lose");
-			}
-			
-			
-		})
-
-		$("#guard").on("click", function() {
-			var gHeal = Math.floor(user.maxHP * .15);
-			alert("Health up by " + gHeal + ". Incoming attack reduced by " + (user.guard));
-			counterAttack();
-			currentUserHP += user.guard + gHeal;
-			$("#compHP").html("HP - " + currentCompHP);
-			//checks loss condition
-			if (currentUserHP > 0) {
-				$("#userHP").html("HP - " + currentUserHP);
-			}
-			else{
-				battle = false;
-				alert("you lose");
-			}
-		})
-
-		$("#heal").on("click", function() {
-			var heal = Math.floor(user.maxHP * .3);
-			alert("You heal for " + heal);
-			currentUserHP += heal;
+$("#attack").on("click", function() {
+	if (battle === true){
+		$("#battleText1").html("You attack for " + user.attack);
+		currentCompHP -= user.attack;
+		if (currentCompHP> 0) {//checks if comp still alive
 			counterAttack();
 			$("#compHP").html("HP - " + currentCompHP);
-			//checks loss condition
-			if (currentUserHP > 0) {
+			
+		}
+
+		if (currentCompHP <=0) {
+			$("#compHP").html("HP - 0");
+			$("#battleText1").html("You've won this duel!!")
+			$("#battleText2").html("Pick another opponent.");
+			pickComp()
+		}
+
+		if (currentUserHP > 0 ) {
 				$("#userHP").html("HP - " + currentUserHP);
-			}
-			else{
-				battle = false;
-				alert("you lose");
-			}
-		})
+		}
+
+			//checks loss condition
+		else if (currentUserHP <=0) {
+			battle = false;
+			$("#userHP").html("");
+			$("#battleText1").html("You lose");
+			$("#battleText2").html("Try Again");
+
+		}
+	}	
+	
+})
+
+$("#guard").on("click", function() {
+	if (battle === true) {
+		var gHeal = Math.floor(user.maxHP * .15);
+		$("#battleText1").html("Health up by " + gHeal + ". Incoming attack reduced by " + (user.guard));
+		counterAttack();
+		currentUserHP += user.guard + gHeal;
+		$("#compHP").html("HP - " + currentCompHP);
+		//checks loss condition
+		if (currentUserHP > 0) {
+			$("#userHP").html("HP - " + currentUserHP);
+		}
+		else if (currentUserHP <=0) {
+			battle = false;
+			$("#userHP").html("");
+			$("#battleText1").html("You lose");
+			$("#battleText2").html("Try Again");
+
+		}
+	}	
+})
+
+$("#heal").on("click", function() {
+	if (battle === true){
+		var heal = Math.floor(user.maxHP * .3);
+		$("#battleText1").html("You heal for " + heal);
+		currentUserHP += heal;
+		counterAttack();
+		$("#compHP").html("HP - " + currentCompHP);
+		//checks loss condition
+		if (currentUserHP > 0) {
+			$("#userHP").html("HP - " + currentUserHP);
+		}
+		else if (currentUserHP <=0) {
+			battle = false;
+			$("#userHP").html("");
+			$("#battleText1").html("You lose");
+			$("#battleText2").html("Try Again");
+		}
+
+	}
+})
 
 
 //start function
@@ -265,6 +290,7 @@ $("#start").on("click", function() {
 	$("#battleText").html("Choose your player and your Opponent");//eliminates start button after clicking, text will update throughout duel
 	setStats();
 	pickUser();
+	battle = true;
 	
 	}
 
