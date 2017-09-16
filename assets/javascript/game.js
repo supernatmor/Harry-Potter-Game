@@ -30,7 +30,7 @@ function setStats() {
 		maxHP: 100, attack: 18
 	};
 	ronald = {
-		maxHP: 130, attack: 15
+		maxHP: 135, attack: 16
 	};
 	potter = {
 		maxHP: 150, attack: 14
@@ -48,7 +48,7 @@ function setStats() {
 		live: true, maxHP: 105, attack: 15, name : "Umbridge"
 	};
 	voldy = {
-		live: true, maxHP: 175, attack: 30, name : "Voldemort"
+		live: true, maxHP: 175, attack: 38, name : "Voldemort"
 	};
 	bella = {
 		live: true, maxHP: 135, attack: 22, name : "Bellatrix"
