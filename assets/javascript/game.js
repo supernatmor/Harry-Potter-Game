@@ -27,34 +27,34 @@ function setStats() {
 	roundWin = 0;
 	grind = 0;
 	herm = {
-		maxHP: 90, attack: 18
+		maxHP: 100, attack: 18
 	};
 	ronald = {
-		maxHP: 115, attack: 16
+		maxHP: 130, attack: 15
 	};
 	potter = {
-		maxHP: 130, attack: 14
+		maxHP: 150, attack: 14
 	};
 	neville  = {
-		maxHP: 150, attack: 10
+		maxHP: 170, attack: 10
 	};
 	cedric = {
-		maxHP: 1, attack: 0	
+		maxHP: 1, attack: 0	//these stats are intentional***
 	};
 	snape = {
-		live: true, maxHP: 125, attack: 25, name : "Snape"
+		live: true, maxHP: 145, attack: 25, name : "Snape"
 	};
 	dolores = {
-		live: true, maxHP: 85, attack: 15, name : "Umbridge"
+		live: true, maxHP: 105, attack: 15, name : "Umbridge"
 	};
 	voldy = {
-		live: true, maxHP: 150, attack: 30, name : "Voldemort"
+		live: true, maxHP: 175, attack: 30, name : "Voldemort"
 	};
 	bella = {
-		live: true, maxHP: 115, attack: 22, name : "Bellatrix"
+		live: true, maxHP: 135, attack: 22, name : "Bellatrix"
 	};
 	malfoy = {
-		live: true, maxHP: 95,  attack: 18, name : "Malfoy"
+		live: true, maxHP: 115,  attack: 18, name : "Malfoy"
 	};
 }
 
@@ -139,7 +139,7 @@ function pickComp(){
 	setCompOrange();
 	$("#sev").on("click", function() {
 		//alert("you clicked Snape");
-		if (snape.live == true){
+		if (snape.live == true && battle == false){
 			setComp(snape.maxHP, snape.attack, snape.name)
 			$("#compImg").attr('src', 'assets/images/ss.jpg');
 			setCompGray()
@@ -156,7 +156,7 @@ function pickComp(){
 
 	$("#del").on("click", function() {
 		//alert("you clicked Umbridge");
-		if (dolores.live == true){
+		if (dolores.live == true && battle == false){
 			setComp(dolores.maxHP, dolores.attack, dolores.name)
 			$("#compImg").attr('src', 'assets/images/du.jpg');
 			setCompGray()
@@ -173,7 +173,7 @@ function pickComp(){
 
 	$("#tom").on("click", function() {
 		//alert("you clicked Voldemort");
-		if (voldy.live == true){
+		if (voldy.live == true && battle == false){
 			setComp(voldy.maxHP, voldy.attack, voldy.name)
 			$("#compImg").attr('src', 'assets/images/tr.jpg');
 			setCompGray()
@@ -190,7 +190,7 @@ function pickComp(){
 
 	$("#bel").on("click", function() {
 		//alert("you clicked Bellatrix");
-		if (bella.live == true){
+		if (bella.live == true && battle == false){
 			setComp(bella.maxHP, bella.attack, bella.name)
 			$("#compImg").attr('src', 'assets/images/bl.jpg');
 			setCompGray()
@@ -207,7 +207,7 @@ function pickComp(){
 
 	$("#luc").on("click", function() {
 		//alert("you clicked Lucius");
-		if (malfoy.live == true){
+		if (malfoy.live == true && battle == false){
 			setComp(malfoy.maxHP, malfoy.attack, malfoy.name)
 			$("#compImg").attr('src', 'assets/images/lm.jpg');
 			setCompGray()
