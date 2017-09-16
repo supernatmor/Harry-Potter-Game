@@ -42,19 +42,19 @@ function setStats() {
 		maxHP: 1, attack: 0	
 	};
 	snape = {
-		live: true, maxHP: 125, attack: 20, name : "Snape"
+		live: true, maxHP: 125, attack: 25, name : "Snape"
 	};
 	dolores = {
-		live: true, maxHP: 85, attack: 20, name : "Umbridge"
+		live: true, maxHP: 85, attack: 15, name : "Umbridge"
 	};
 	voldy = {
-		live: true, maxHP: 150, attack: 20, name : "Voldemort"
+		live: true, maxHP: 150, attack: 30, name : "Voldemort"
 	};
 	bella = {
-		live: true, maxHP: 115, attack: 20, name : "Bellatrix"
+		live: true, maxHP: 115, attack: 22, name : "Bellatrix"
 	};
 	malfoy = {
-		live: true, maxHP: 95,  attack: 20, name : "Malfoy"
+		live: true, maxHP: 95,  attack: 18, name : "Malfoy"
 	};
 }
 
@@ -68,6 +68,7 @@ function setUserBlue(){
 function clearHeroes() {
 	$(".hPic").fadeTo(0,0);
 	$("#heroes").html("<h3>&nbsp</h3>");
+	$(".herohp").fadeTo(0,0);
 }
 
 function pickUser() {
@@ -143,6 +144,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/ss.jpg');
 			setCompGray()
 			$("#sev").fadeTo(0,0);
+			$("#sevhp").fadeTo(0,0);
 			$("#compHP").html("HP -  " + snape.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
@@ -159,6 +161,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/du.jpg');
 			setCompGray()
 			$("#del").fadeTo(0,0);
+			$("#delhp").fadeTo(0,0);
 			$("#compHP").html("HP -  " + dolores.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
@@ -175,6 +178,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/tr.jpg');
 			setCompGray()
 			$("#tom").fadeTo(0,0);
+			$("#tomhp").fadeTo(0,0);
 			$("#compHP").html("HP -  " + voldy.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
@@ -191,6 +195,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/bl.jpg');
 			setCompGray()
 			$("#bel").fadeTo(0,0);
+			$("#belhp").fadeTo(0,0);
 			$("#compHP").html("HP -  " + bella.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
@@ -207,6 +212,7 @@ function pickComp(){
 			$("#compImg").attr('src', 'assets/images/lm.jpg');
 			setCompGray()
 			$("#luc").fadeTo(0,0);
+			$("#luchp").fadeTo(0,0);
 			$("#compHP").html("HP -  " + malfoy.maxHP);
 			currentCompHP = comp.maxHP;
 			battle = true;
@@ -286,14 +292,21 @@ function loseText () {
 
 //resets board for win or lose scenario
 function reset () {
-	$(".hPic").css({"border-color" : "darkgray"});
-	$(".hPic").fadeTo(1,1);
-	$(".ePic").fadeTo(1,1);
-	$("#userImg").attr('src', 'assets/images/php.png');
-	$("#compImg").attr('src', 'assets/images/php.png');
-	$("#heroes").html("<h3>Heroes</h3>");
 	$("#compHP").html("");
 	$("#battleText2").on("click", function() {
+		$("#heroes").html("<h3>Heroes</h3>");
+		$("#userHP").html("");
+		$(".hPic").css({"border-color" : "darkgray"});
+		$(".hPic").fadeTo(1, 1);
+		$(".herohp").fadeTo(1,1);
+		$(".ePic").fadeTo(1,1);
+		$("#sevhp").fadeTo(1,1);
+		$("#delhp").fadeTo(1,1);
+		$("#tomhp").fadeTo(1,1);
+		$("#belhp").fadeTo(1,1);
+		$("#luchp").fadeTo(1,1);
+		$("#userImg").attr('src', 'assets/images/php.png');
+		$("#compImg").attr('src', 'assets/images/php.png');
 		setStats();
 		pickUser();
 	})
