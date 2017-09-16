@@ -1,105 +1,136 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>jquery game</title>
-	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jquery game</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-
-	<div class="container">
-		<div class="row, text-center"><span id="heroes"><h3>Heroes</h3></span></div>
-		<div class="row"><!--character select row1-->
-			<div class="col-md-1"><!--buffer to center--></div>
-			<div class="col-md-2">
-				<img class="img hPic" id="her" src="assets/images/hg.jpg"><div class="text-center herohp"><h2>100</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img hPic" id="ron" src="assets/images/rw.jpg"><div class="text-center herohp"><h2>135</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img hPic" id="har" src="assets/images/hp.jpg"><div class="text-center herohp"><h2>150</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img hPic" id="nev" src="assets/images/nl.jpg"><div class="text-center herohp"><h2>170</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img hPic" id="ced" src="assets/images/cd.jpg"><div class="text-center herohp"><h2>1</h2></div>
-			</div>
-		</div>
-
-		<br>
-
-		<div class="row">
-				<div class="col-md-3"><!--buffer to center--></div>
-				<div class="col-md-2"></div>
-				<div class="col-md-2"><button type="button" id="attack" class="btn btn-danger">Attack</button></div>
-				<div class="col-md-2"></div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-4"><!--User Stats-->
-				<div class="thumbnail">
-					<img id="userImg" class="battleImage1" src="assets/images/php.png" alt="PlaceHolder"><!--placeholder image until user chooses character-->
-					<div class="caption">
-						<h3 class="text-center">User</h3>
-					</div>
-					<div class="text-left">
-						<h4 id="userHP"></h4>
-						<br>
-					</div>
-				</div>
-    		</div>
-    		<div class="col-md-4"><!--battle text-->
-				<div class="thumbnail">
-					<div id="battleText1">
-					<h1 class="text-center" id="start"><br>Start &nbsp &nbsp</h1>
-					<br><br>					
-					</div>
-					<div id="battleText2">
-					<h1 class="text-center" id="start"></h1>
-					<br>					
-					</div>
-				</div>
-    		</div>
-    		<div class="col-md-4"><!--Comp Stats-->
-				<div class="thumbnail">
-					<img id="compImg" class="battleImage2"  src="assets/images/php.png" alt="PlaceHolder"><!--placeholder image until user chooses character-->
-					<div class="caption">
-					<h3 class="text-center">Comp</h3>
-					</div>
-					<div class="text-left">
-						<h4 id="compHP"></h4>
-					</div>
-				</div>
-    		</div>
-			
-		</div>
-
-		
-		<div class="row"><!--enemy select row-->
-			<div class="col-md-1"><!--buffer to center--></div>
-			<div class="col-md-2">
-				<img class="img ePic" id="sev" src="assets/images/ss.jpg"><div class="text-center" id="sevhp"><h2>145</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img ePic" id="del" src="assets/images/du.jpg"><div class="text-center" id="delhp"><h2>105</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img ePic" id="tom" src="assets/images/tr.jpg"><div class="text-center" id="tomhp"><h2>175</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img ePic" id="bel" src="assets/images/bl.jpg"><div class="text-center" id="belhp"><h2>135</h2></div>
-			</div>
-			<div class="col-md-2">
-				<img class="img ePic" id="luc" src="assets/images/lm.jpg"><div class="text-center" id="luchp"><h2>115</h2></div>
-			</div>
-		</div>
-		<div class="row, text-center"><span id="comp char"><h3>Villains</h3></span></div>
-	</div>
-
-<script src="assets/javascript/game.js"></script>
+    <div class="container">
+        <div class="row, text-center"><span id="heroes"><br><h3>Heroes</h3></span></div>
+        <div class="row">
+            <!--character select row1-->
+            <div class="col-md-1">
+                <!--buffer to center-->
+            </div>
+            <div class="col-md-2">
+                <img class="img hPic" id="her" src="assets/images/hg.jpg">
+                <div class="text-center herohp">
+                    <h2>100</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img hPic" id="ron" src="assets/images/rw.jpg">
+                <div class="text-center herohp">
+                    <h2>135</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img hPic" id="har" src="assets/images/hp.jpg">
+                <div class="text-center herohp">
+                    <h2>150</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img hPic" id="nev" src="assets/images/nl.jpg">
+                <div class="text-center herohp">
+                    <h2>170</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img hPic" id="ced" src="assets/images/cd.jpg">
+                <div class="text-center herohp">
+                    <h2>1</h2></div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <!--buffer to center-->
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <button type="button" id="attack" class="btn btn-danger">Attack</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <!--User Stats-->
+                <div class="thumbnail">
+                    <img id="userImg" class="battleImage1" src="assets/images/php.png" alt="PlaceHolder">
+                    <!--placeholder image until user chooses character-->
+                    <div class="caption">
+                        <h3 class="text-center">User</h3>
+                    </div>
+                    <div class="text-left">
+                        <h4 id="userHP"></h4>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!--battle text-->
+                <div class="thumbnail">
+                    <div id="battleText1">
+                        <h1 class="text-center" id="start"><br>Start &nbsp &nbsp</h1>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="battleText2">
+                        <h1 class="text-center" id="start"></h1>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!--Comp Stats-->
+                <div class="thumbnail">
+                    <img id="compImg" class="battleImage2" src="assets/images/php.png" alt="PlaceHolder">
+                    <!--placeholder image until user chooses character-->
+                    <div class="caption">
+                        <h3 class="text-center">Comp</h3>
+                    </div>
+                    <div class="text-left">
+                        <h4 id="compHP"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--enemy select row-->
+            <div class="col-md-1">
+                <!--buffer to center-->
+            </div>
+            <div class="col-md-2">
+                <img class="img ePic" id="sev" src="assets/images/ss.jpg">
+                <div class="text-center" id="sevhp">
+                    <h2>145</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img ePic" id="del" src="assets/images/du.jpg">
+                <div class="text-center" id="delhp">
+                    <h2>105</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img ePic" id="tom" src="assets/images/tr.jpg">
+                <div class="text-center" id="tomhp">
+                    <h2>175</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img ePic" id="bel" src="assets/images/bl.jpg">
+                <div class="text-center" id="belhp">
+                    <h2>135</h2></div>
+            </div>
+            <div class="col-md-2">
+                <img class="img ePic" id="luc" src="assets/images/lm.jpg">
+                <div class="text-center" id="luchp">
+                    <h2>115</h2></div>
+            </div>
+        </div>
+        <div class="row, text-center"><span id="comp char"><h3>Villains</h3></span></div>
+    </div>
+    <script src="assets/javascript/game.js"></script>
 </body>
+
 </html>

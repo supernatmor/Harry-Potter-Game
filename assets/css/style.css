@@ -1,4 +1,9 @@
+@font-face {
+	font-family: "hpfont";
+	src: url(custom.ttf);
+}
 body {
+	font-family: "hpfont";
 	background-image: url("../images/bg.jpg");
 	background-repeat: no-repeat;
 	background-color: gray;
@@ -7,13 +12,16 @@ body {
 	-2px -2px 0 #000,
 	2px -2px 0 #000,
 	-2px 2px 0 #000,
-	2px 2px 0 #000;  
-
+	2px 2px 0 #000;
 }
 
 button {
 	width: 150px;
 	color: silver;
+}
+
+img {
+	margin-bottom: 7px;
 }
 
 .img {
