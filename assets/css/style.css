@@ -6,7 +6,8 @@ body {
 	font-family: "hpfont";
 	background-image: url("../images/bg.jpg");
 	background-repeat: no-repeat;
-	background-color: gray;
+    background-attachment: fixed;
+    background-position: center;
 	color: silver;
 	text-shadow:
 	-2px -2px 0 #000,
